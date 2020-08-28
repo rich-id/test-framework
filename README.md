@@ -1,7 +1,7 @@
-The RichCongress Template Bundle
+The RichCongress Test Framework
 =======================================
 
-This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
+This version of the bundle requires PHP 7.3+.
 
 [![Package version](https://img.shields.io/packagist/v/richcongress/test-framework)](https://packagist.org/packages/richcongress/test-framework)
 [![Actions Status](https://github.com/richcongress/test-framework/workflows/Tests/badge.svg)](https://github.com/t/richcongress/test-framework/actions)
@@ -37,7 +37,7 @@ The first thing to do is adding the PHPUnitExtension in your `phpunit.xml.dist` 
 
 ```xml
 <extensions>
-    <extension class="RichCongress\TestFramework\PHPUnit\PHPUnitExtension">
+    <extension class="RichCongress\TestFramework\PHPUnitExtension">
         <arguments>
             <string>TestHookClassName</string>
         </arguments>

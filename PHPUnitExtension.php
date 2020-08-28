@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace RichCongress\TestFramework\PHPUnit;
+namespace RichCongress\TestFramework;
 
 use PHPUnit\Runner\AfterIncompleteTestHook;
 use PHPUnit\Runner\AfterRiskyTestHook;
@@ -18,7 +18,7 @@ use RichCongress\TestFramework\TestHook\TestHookInterface;
 /**
  * Class PHPUnitExtension
  *
- * @package   RichCongress\TestFramework\PHPUnit
+ * @package   RichCongress\TestFramework
  * @author    Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright 2014 - 2020 RichCongress (https://www.richcongress.com)
  */
