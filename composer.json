@@ -1,7 +1,7 @@
 {
-    "name": "richcongress/template-bundle",
-    "description": "A magic bundle",
-    "type": "symfony-bundle",
+    "name": "richcongress/test-framework",
+    "description": "A Test framework that uses the PHPUnit Extension with priorities",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,27 +9,31 @@
             "homepage": "https://www.richcongress.com"
         }
     ],
+    "support": {
+        "email": "contact@richcongress.com",
+        "source": "https://github.com/richcongress/test-framework",
+        "docs": "https://github.com/richcongress/test-framework/blob/master/README.md",
+        "issues": "https://github.com/richcongress/test-framework/issues"
+    },
     "require": {
         "php": ">=7.3",
-        "richcongress/bundle-toolbox": "*"
+        "phpunit/phpunit": "^7|^8|^9"
     },
     "require-dev": {
-        "richcongress/unit-bundle": "v2.0.0.x-dev",
-        "infection/infection": "^0.16.4",
+        "phpunit/phpunit": "^7.5",
         "php-coveralls/php-coveralls": "^2.1"
     },
     "autoload": {
         "psr-4": {
-            "RichCongress\\TemplateBundle\\": ""
+            "RichCongress\\TestFramework\\": ""
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RichCongress\\TemplateBundle\\Tests\\": "Tests/"
+            "RichCongress\\TestFramework\\Tests\\": "Tests/"
         }
     },
     "config": {
-        "bin-dir": "bin",
         "discard-changes": true,
         "sort-packages": true
     }
