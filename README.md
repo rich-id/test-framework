@@ -17,7 +17,7 @@ This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
 [![Package version](https://img.shields.io/packagist/v/richcongress/test-framework)](https://packagist.org/packages/richcongress/test-framework)
 [![Actions Status](https://github.com/richcongress/test-framework/workflows/Tests/badge.svg)](https://github.com/t/richcongress/test-framework/actions)
 [![Coverage Status](https://coveralls.io/repos/github/richcongress/test-framework/badge.svg?branch=master)](https://coveralls.io/github/richcongress/test-framework?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a96c9f96ae55461a8f08/maintainability)](https://codeclimate.com/github/richcongress/bundle-template/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dd6a5a22230feb9ca43f/maintainability)](https://codeclimate.com/github/richcongress/test-framework/maintainability)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/richcongress/test-framework/issues)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
