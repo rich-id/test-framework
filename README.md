@@ -10,7 +10,7 @@ This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/richcongress/test-framework/issues)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-Short description
+This library is a test framework that works with PHPUnit to provide similar behaviour than hooks within extensions but with the notion of priority to improve their interactions.
 
 
 # Table of content
