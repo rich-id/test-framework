@@ -1,14 +1,3 @@
-# Template Bundle tasks
-
-- Replace `test-framework` by `your-bundle-name-bundle`
-- Replace `RichCongressTestFramework` by `RichCongressYourBundleNameBundle`
-- Replace `RichCongress\TestFramework` by `RichCongress\YourBundleNameBundle`
-- Replace `RichCongress\\TestFramework` by `RichCongress\\YourBundleNameBundle`
-- Rename `RichCongressTestFramework` by `RichCongressYourBundleNameBundle`
-- Rename `RichCongressTemplateExtension` by `RichCongressYourBundleNameExtension`
-- Change the `Configuration::CONFIG_NODE` constant
-
-
 The RichCongress Template Bundle
 =======================================
 
@@ -23,10 +12,6 @@ This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
 
 Short description
 
-
-# Quick start
-
-Quick showcase
 
 # Table of content
 
