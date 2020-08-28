@@ -15,11 +15,11 @@ The RichCongress Template Bundle
 This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
 
 [![Package version](https://img.shields.io/packagist/v/richcongress/test-framework)](https://packagist.org/packages/richcongress/test-framework)
-[![Build Status](https://img.shields.io/travis/richcongress/test-framework.svg?branch=master)](https://travis-ci.org/richcongress/test-framework?branch=master)
+[![Actions Status](https://github.com/richcongress/test-framework/workflows/Tests/badge.svg)](https://github.com/t/richcongress/test-framework/actions)
 [![Coverage Status](https://coveralls.io/repos/github/richcongress/test-framework/badge.svg?branch=master)](https://coveralls.io/github/richcongress/test-framework?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/test-framework/maintainability)](https://codeclimate.com/github/richcongress/test-framework/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a96c9f96ae55461a8f08/maintainability)](https://codeclimate.com/github/richcongress/bundle-template/maintainability)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/richcongress/test-framework/issues)
-[![License](https://img.shields.io/badge/license-MIT-red.svg)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 Short description
 
