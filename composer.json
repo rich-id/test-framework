@@ -34,6 +34,7 @@
         }
     },
     "config": {
+        "bin-dir": "bin",
         "discard-changes": true,
         "sort-packages": true
     }
