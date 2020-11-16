@@ -3,10 +3,11 @@
 namespace RichCongress\TestFramework\Tests;
 
 use PHPUnit\Framework\TestCase;
-use RichCongress\TestFramework\PHPUnit\PHPUnitExtension;
-use RichCongress\TestFramework\Tests\Resources\DummyTestHook;
-use RichCongress\TestFramework\Tests\Resources\SecondDummyTestHook;
-use RichCongress\TestFramework\Tests\Resources\ThirdDummyTestHook;
+use RichCongress\TestFramework\PHPUnitExtension;
+use RichCongress\TestFramework\TestHook\TestConfigurationHook;
+use RichCongress\TestFramework\Tests\Resources\TestHook\DummyTestHook;
+use RichCongress\TestFramework\Tests\Resources\TestHook\SecondDummyTestHook;
+use RichCongress\TestFramework\Tests\Resources\TestHook\ThirdDummyTestHook;
 
 /**
  * Class TestHookTest
@@ -15,8 +16,9 @@ use RichCongress\TestFramework\Tests\Resources\ThirdDummyTestHook;
  * @author    Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright 2014 - 2020 RichCongress (https://www.richcongress.com)
  *
- * @covers \RichCongress\TestFramework\PHPUnit\PHPUnitExtension
+ * @covers \RichCongress\TestFramework\PHPUnitExtension
  * @covers \RichCongress\TestFramework\TestHook\AbstractTestHook
+ * @covers \RichCongress\TestFramework\TestHook\TestConfigurationHook
  */
 class TestHookTest extends TestCase
 {
@@ -41,16 +43,18 @@ class TestHookTest extends TestCase
         $hooks = $reflectionProperty->getValue($this->extension);
 
         $executeAfterIncompleteTestHooks = $hooks['executeAfterIncompleteTest'];
-        self::assertCount(3, $executeAfterIncompleteTestHooks);
+        self::assertCount(4, $executeAfterIncompleteTestHooks);
         self::assertInstanceOf(DummyTestHook::class, $executeAfterIncompleteTestHooks[0]['hook']);
         self::assertInstanceOf(SecondDummyTestHook::class, $executeAfterIncompleteTestHooks[1]['hook']);
         self::assertInstanceOf(ThirdDummyTestHook::class, $executeAfterIncompleteTestHooks[2]['hook']);
+        self::assertInstanceOf(TestConfigurationHook::class, $executeAfterIncompleteTestHooks[3]['hook']);
 
         $executeAfterLastTestHooks = $hooks['executeAfterLastTest'];
-        self::assertCount(3, $executeAfterLastTestHooks);
+        self::assertCount(4, $executeAfterLastTestHooks);
         self::assertInstanceOf(SecondDummyTestHook::class, $executeAfterLastTestHooks[0]['hook']);
         self::assertInstanceOf(ThirdDummyTestHook::class, $executeAfterLastTestHooks[1]['hook']);
-        self::assertInstanceOf(DummyTestHook::class, $executeAfterLastTestHooks[2]['hook']);
+        self::assertInstanceOf(TestConfigurationHook::class, $executeAfterLastTestHooks[2]['hook']);
+        self::assertInstanceOf(DummyTestHook::class, $executeAfterLastTestHooks[3]['hook']);
     }
 
     public function testExecuteAfterIncompleteTest(): void
@@ -137,7 +141,7 @@ class TestHookTest extends TestCase
 
     public function testExecuteBeforeTest(): void
     {
-        $this->extension->executeBeforeTest('test');
+        $this->extension->executeBeforeTest(__METHOD__);
 
         self::assertTrue(DummyTestHook::$executeBeforeTest);
         self::assertTrue(SecondDummyTestHook::$executeBeforeTest);

@@ -13,6 +13,7 @@ use PHPUnit\Runner\AfterTestWarningHook;
 use PHPUnit\Runner\BeforeFirstTestHook;
 use PHPUnit\Runner\AfterLastTestHook;
 use PHPUnit\Runner\BeforeTestHook;
+use RichCongress\TestFramework\TestHook\TestConfigurationHook;
 use RichCongress\TestFramework\TestHook\TestHookInterface;
 
 /**
@@ -36,7 +37,9 @@ class PHPUnitExtension implements
     BeforeTestHook
 {
     /** @var array|string[] */
-    public static $supportedHooks = [];
+    public static $supportedHooks = [
+        TestConfigurationHook::class
+    ];
 
     /** @var array */
     protected $hooks = [
