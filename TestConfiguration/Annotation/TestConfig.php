@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace RichCongress\TestFramework\TestConfiguration;
+namespace RichCongress\TestFramework\TestConfiguration\Annotation;
 
 /**
  * Class TestConfig
@@ -9,7 +9,7 @@ namespace RichCongress\TestFramework\TestConfiguration;
  * @author     Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
  *
- * @Annotations
+ * @Annotation
  */
 final class TestConfig
 {
@@ -21,7 +21,7 @@ final class TestConfig
      *
      * @param array|string $configurations
      */
-    public function __construct($configurations)
+    public function __construct($configurations = [])
     {
         $this->configurations = [];
         $configurations = (array) ($configurations['value'] ?? []);

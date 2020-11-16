@@ -29,7 +29,7 @@
             "RichCongress\\TestFramework\\": ""
         },
         "files" : [
-            "./TestConfiguration/TestConfig.php"
+            "TestConfiguration/Annotation/TestConfig.php"
         ]
     },
     "autoload-dev": {

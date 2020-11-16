@@ -3,6 +3,7 @@
 namespace RichCongress\TestFramework\TestConfiguration;
 
 use Doctrine\Common\Annotations\AnnotationReader;
+use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
 
 /**
  * Class TestConfigurationExtractor

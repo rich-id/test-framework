@@ -3,7 +3,7 @@
 namespace RichCongress\TestFramework\Tests\Resources;
 
 use PHPUnit\Framework\TestCase;
-use RichCongress\TestFramework\TestConfiguration\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
 
 /**
  * Class DummyTestCaseWithTestConfig

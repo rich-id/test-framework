@@ -2,6 +2,7 @@
 
 namespace RichCongress\TestFramework\TestHook;
 
+use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
 use RichCongress\TestFramework\TestConfiguration\TestConfiguration;
 use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
 
@@ -32,10 +33,7 @@ class TestConfigurationHook extends AbstractTestHook
     public function executeBeforeTest(string $test): void
     {
         [$class, $method] = explode('::', $test);
-        $testConfig = TestConfigurationExtractor::getRecursively($class, $method);
-
-        if ($testConfig !== null) {
-            TestConfiguration::setCurrentTestConfig($testConfig);
-        }
+        $testConfig = TestConfigurationExtractor::getRecursively($class, $method) ?? new TestConfig();
+        TestConfiguration::setCurrentTestConfig($testConfig);
     }
 }

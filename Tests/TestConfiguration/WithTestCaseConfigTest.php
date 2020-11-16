@@ -2,7 +2,7 @@
 
 namespace RichCongress\TestFramework\Tests\TestConfiguration;
 
-use RichCongress\TestFramework\TestConfiguration\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
 use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
 use RichCongress\TestFramework\Tests\Resources\DummyTestCaseWithTestConfig;
 
