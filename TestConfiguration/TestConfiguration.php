@@ -16,6 +16,9 @@ final class TestConfiguration
     /** @var TestConfig */
     private static $currentTestConfig;
 
+    /**
+     * @codeCoverageIgnore
+     */
     private function __construct()
     {
         // Avoid instantiation

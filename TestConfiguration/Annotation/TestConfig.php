@@ -49,10 +49,6 @@ final class TestConfig
 
     protected static function isAssociative(array $arr): bool
     {
-        if ($arr === []) {
-            return false;
-        }
-
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 }

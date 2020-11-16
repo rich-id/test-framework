@@ -13,7 +13,7 @@ use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
  * @author     Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
  *
- * @covers \RichCongress\TestFramework\TestConfiguration\TestConfig
+ * @covers \RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig
  * @covers \RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor
  */
 final class WithoutClassConfigTest extends TestCase

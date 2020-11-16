@@ -15,6 +15,7 @@ use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
  *
  * @covers \RichCongress\TestFramework\TestConfiguration\TestConfiguration
+ * @covers \RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor
  */
 final class TestConfigurationTest extends TestCase
 {
@@ -27,7 +28,7 @@ final class TestConfigurationTest extends TestCase
         self::assertInstanceOf(TestConfig::class, $testConfig);
 
         TestConfiguration::setCurrentTestConfig($testConfig);
-        self::assertTrue($testConfig->has('custom_configuration'));
-        self::assertTrue($testConfig->get('custom_configuration'));
+        self::assertTrue(TestConfiguration::has('custom_configuration'));
+        self::assertTrue(TestConfiguration::get('custom_configuration'));
     }
 }
