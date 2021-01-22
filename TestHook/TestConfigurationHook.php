@@ -32,7 +32,13 @@ class TestConfigurationHook extends AbstractTestHook
      */
     public function executeBeforeTest(string $test): void
     {
-        [$class, $method] = explode('::', $test);
+        $explodedTestName = explode('::', $test);
+
+        if (count($explodedTestName) !== 2) {
+            return;
+        }
+
+        [$class, $method] = $explodedTestName;
         $testConfig = TestConfigurationExtractor::getRecursively($class, $method) ?? new TestConfig();
         TestConfiguration::setCurrentTestConfig($testConfig);
     }
