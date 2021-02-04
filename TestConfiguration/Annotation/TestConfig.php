@@ -10,11 +10,12 @@ namespace RichCongress\TestFramework\TestConfiguration\Annotation;
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
  *
  * @Annotation
+ * @Target({"CLASS", "METHOD"})
  */
-final class TestConfig
+class TestConfig
 {
     /** @var array<string|mixed> */
-    private $configurations;
+    protected $configurations;
 
     /**
      * TestConfig constructor.
