@@ -12,6 +12,7 @@ namespace RichCongress\TestFramework\TestConfiguration\Annotation;
  * @Annotation
  * @Target({"CLASS", "METHOD"})
  */
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
 class TestConfig
 {
     /** @var array<string|mixed> */
@@ -25,7 +26,7 @@ class TestConfig
     public function __construct($configurations = [])
     {
         $this->configurations = [];
-        $configurations = (array) ($configurations['value'] ?? []);
+        $configurations = (array) ($configurations['value'] ?? $configurations);
         $isAssociative = static::isAssociative($configurations);
 
         if ($isAssociative) {

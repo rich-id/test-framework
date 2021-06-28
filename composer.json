@@ -16,7 +16,7 @@
         "issues": "https://github.com/richcongress/test-framework/issues"
     },
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.0",
         "doctrine/annotations": "^1.11",
         "phpunit/phpunit": "^7|^8|^9"
     },

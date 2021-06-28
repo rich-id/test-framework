@@ -48,19 +48,24 @@ final class TestConfigurationExtractor
 
     public static function getFromReflection(\Reflector $reflection): ?TestConfig
     {
-        $annotation = null;
+        if (method_exists($reflection, 'getAttributes')) {
+            $attribute = $reflection->getAttributes(TestConfig::class)[0] ?? null;
 
-        if ($reflection instanceof \ReflectionClass) {
-            /** @var TestConfig|null $annotation */
-            $annotation = self::getAnnotationReader()->getClassAnnotation($reflection, TestConfig::class);
+            if ($attribute !== null) {
+                return $attribute->newInstance();
+            }
         }
 
-        if ($reflection instanceof \ReflectionMethod) {
-            /** @var TestConfig|null $annotation */
-            $annotation = self::getAnnotationReader()->getMethodAnnotation($reflection, TestConfig::class);
-        }
+        switch (\get_class($reflection)) {
+            case \ReflectionClass::class:
+                return self::getAnnotationReader()->getClassAnnotation($reflection, TestConfig::class);
 
-        return $annotation;
+            case \ReflectionMethod::class:
+                return self::getAnnotationReader()->getMethodAnnotation($reflection, TestConfig::class);
+
+            default:
+                throw new \LogicException('Unsupported reflector.');
+        }
     }
 
     private static function getAnnotationReader(): AnnotationReader
