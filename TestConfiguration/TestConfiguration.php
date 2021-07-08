@@ -31,11 +31,11 @@ final class TestConfiguration
 
     public static function has(string $key): bool
     {
-        return self::$currentTestConfig->has($key);
+        return self::$currentTestConfig && self::$currentTestConfig->has($key);
     }
 
     public static function get(string $key)
     {
-        return self::$currentTestConfig->get($key);
+        return self::$currentTestConfig && self::$currentTestConfig->get($key);
     }
 }
