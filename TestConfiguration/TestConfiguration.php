@@ -36,6 +36,6 @@ final class TestConfiguration
 
     public static function get(string $key)
     {
-        return self::$currentTestConfig && self::$currentTestConfig->get($key);
+        return self::$currentTestConfig ? self::$currentTestConfig->get($key) : null;
     }
 }
