@@ -13,6 +13,7 @@
 /phpunit-filter.php
 /.phpunit
 /coverage
+/reports
 
 # Auto-saved files
 *~
