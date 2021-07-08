@@ -16,12 +16,12 @@
         "issues": "https://github.com/richcongress/test-framework/issues"
     },
     "require": {
-        "php": ">=8.0",
+        "php": "^7.1|^8.0",
         "doctrine/annotations": "^1.11",
         "phpunit/phpunit": "^7|^8|^9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5",
+        "phpunit/phpunit": "^9.5",
         "php-coveralls/php-coveralls": "^2.1"
     },
     "autoload": {
