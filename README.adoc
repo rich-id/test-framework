@@ -6,7 +6,7 @@
 
 ifdef::env-github[]
 ++++
-<p align="center">
+<div align="center">
 ++++
 endif::[]
 
@@ -28,7 +28,7 @@ image:https://img.shields.io/badge/PHP-8.0%2B-yellow[]
 
 ifdef::env-github[]
 ++++
-</p>
+</div>
 ++++
 endif::[]
 
