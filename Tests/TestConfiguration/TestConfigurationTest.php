@@ -30,5 +30,25 @@ final class TestConfigurationTest extends TestCase
         TestConfiguration::setCurrentTestConfig($testConfig);
         self::assertTrue(TestConfiguration::has('custom_configuration'));
         self::assertTrue(TestConfiguration::get('custom_configuration'));
+        self::assertSame($testConfig, TestConfiguration::getCurrentTestConfig());
+    }
+
+    public function testGetFromReflectionWithAttribute(): void
+    {
+        $reflectionMethod = new \ReflectionMethod(WithoutClassConfigTest::class, 'testWithTestConfigAttribute');
+        $testConfig = TestConfigurationExtractor::getFromReflection($reflectionMethod);
+
+        self::assertNotNull($testConfig);
+    }
+
+    public function testGetFromReflectionWithUnknownReflector(): void
+    {
+        $this->expectException(\LogicException::class);
+        $this->expectExceptionMessage('Unsupported reflector.');
+
+        $reflector = new \ReflectionObject(new \StdClass());
+        $testConfig = TestConfigurationExtractor::getFromReflection($reflector);
+
+        self::assertNotNull($testConfig);
     }
 }

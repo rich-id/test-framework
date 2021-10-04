@@ -4,6 +4,7 @@ namespace RichCongress\TestFramework\Tests;
 
 use PHPUnit\Framework\TestCase;
 use RichCongress\TestFramework\PHPUnitExtension;
+use RichCongress\TestFramework\TestConfiguration\TestConfiguration;
 use RichCongress\TestFramework\TestHook\TestConfigurationHook;
 use RichCongress\TestFramework\Tests\Resources\TestHook\DummyTestHook;
 use RichCongress\TestFramework\Tests\Resources\TestHook\SecondDummyTestHook;
@@ -145,5 +146,14 @@ class TestHookTest extends TestCase
 
         self::assertTrue(DummyTestHook::$executeBeforeTest);
         self::assertTrue(SecondDummyTestHook::$executeBeforeTest);
+    }
+
+    public function testExecuteTestConfigurationBeforeTestHookWithBadString(): void
+    {
+        $currentTestConfig = TestConfiguration::getCurrentTestConfig();
+        $hook = new TestConfigurationHook();
+        $hook->executeBeforeTest('invalid string');
+
+        self::assertSame($currentTestConfig, TestConfiguration::getCurrentTestConfig());
     }
 }

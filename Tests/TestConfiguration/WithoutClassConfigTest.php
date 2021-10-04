@@ -29,6 +29,15 @@ final class WithoutClassConfigTest extends TestCase
         self::assertFalse($testConfig->has('test_class_configuration'));
     }
 
+    #[TestConfig('test_attribute_method_configuration')]
+    public function testWithTestConfigAttribute(): void
+    {
+        $testConfig = TestConfigurationExtractor::getRecursively(__CLASS__, __FUNCTION__);
+        self::assertInstanceOf(TestConfig::class, $testConfig);
+        self::assertTrue($testConfig->has('test_attribute_method_configuration'));
+        self::assertFalse($testConfig->has('test_class_configuration'));
+    }
+
     public function testWithoutTestConfig(): void
     {
         $testConfig = TestConfigurationExtractor::getRecursively(__CLASS__, __FUNCTION__);
