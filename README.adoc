@@ -1,0 +1,139 @@
+:toc: macro
+:toc-title:
+:toclevels: 2
+:sectnums:
+:sectnumlevels: 2
+
+ifdef::env-github[]
+++++
+<p align="center">
+++++
+endif::[]
+
+= Test framework
+
+https://packagist.org/packages/NicolasGuilloux/test-framework[image:https://img.shields.io/packagist/v/NicolasGuilloux/test-framework[Package
+version]]
+https://github.com/t/NicolasGuilloux/test-framework/actions[image:https://github.com/NicolasGuilloux/test-framework/workflows/Tests/badge.svg[Actions
+Status]]
+https://coveralls.io/github/NicolasGuilloux/test-framework?branch=master[image:https://coveralls.io/repos/github/NicolasGuilloux/test-framework/badge.svg?branch=master[Coverage
+Status]]
+https://codeclimate.com/github/NicolasGuilloux/test-framework/maintainability[image:https://api.codeclimate.com/v1/badges/3a0f387b1272888040e7/maintainability[Maintainability]]
+https://github.com/NicolasGuilloux/test-framework/issues[image:https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat[contributions
+welcome]]
+link:LICENSE.md[image:https://img.shields.io/badge/license-MIT-blue.svg[License]]
+
+image:https://img.shields.io/badge/PHP-7.3%2B-yellow[]
+image:https://img.shields.io/badge/PHP-8.0%2B-yellow[]
+
+ifdef::env-github[]
+++++
+</p>
+++++
+endif::[]
+
+This library is a test framework that works with PHPUnit to provide
+similar behaviour than hooks within extensions but with the notion of
+priority to improve their interactions.
+
+[discrete]
+== Table of content
+
+toc::[]
+
+
+== Installation
+
+This version of the bundle requires Symfony 4.4+ and PHP 7.3+.
+
+[source,bash]
+----
+composer require richcongress/test-framework
+----
+
+== Getting started
+
+The first thing to do is adding the PHPUnitExtension in your
+`phpunit.xml.dist` like following:
+
+[source,xml]
+----
+<extensions>
+    <extension class="RichCongress\TestFramework\PHPUnitExtension">
+        <arguments>
+            <string>TestHookClassName</string>
+        </arguments>
+    </extension>
+</extensions>
+----
+
+You need to change add each TestHook as no solution has been found to
+automatically configure it.
+
+To create a TestHook, simply use the `TestHookInterface` interface or
+extends your TestHook with the class `AbstractTestHook`, and then
+override the methods you want.
+
+== Versioning
+
+template-bundle follows https://semver.org/[semantic versioning]. In
+short the scheme is MAJOR.MINOR.PATCH where 1. MAJOR is bumped when
+there is a breaking change, 2. MINOR is bumped when a new feature is
+added in a backward-compatible way, 3. PATCH is bumped when a bug is
+fixed in a backward-compatible way.
+
+Versions bellow 1.0.0 are considered experimental and breaking changes
+may occur at any time.
+
+== Contributing
+
+Contributions are welcomed! There are many ways to contribute, and we
+appreciate all of them. Here are some of the major ones:
+
+* https://github.com/richcongress/test-framework/issues[Bug Reports]:
+While we strive for quality software, bugs can happen and we can’t fix
+issues we’re not aware of. So please report even if you’re not sure
+about it or just want to ask a question. If anything the issue might
+indicate that the documentation can still be improved!
+* https://github.com/richcongress/test-framework/issues[Feature
+Request]: You have a use case not covered by the current api? Want to
+suggest a change or add something? We’d be glad to read about it and
+start a discussion to try to find the best possible solution.
+* https://github.com/richcongress/test-framework/merge_requests[Pull
+Request]: Want to contribute code or documentation? We’d love that! If
+you need help to get started, GitHub as
+https://help.github.com/articles/about-pull-requests/[documentation] on
+pull requests. We use the
+https://help.github.com/articles/about-collaborative-development-models/[``fork
+and pull model''] were contributors push changes to their personnal fork
+and then create pull requests to the main repository. Please make your
+pull requests against the `master` branch.
+
+As a reminder, all contributors are expected to follow our
+link:CODE_OF_CONDUCT.md[Code of Conduct].
+
+== Hacking
+
+You might use Docker and `docker-compose` to hack the project. Check out
+the following commands.
+
+[source,bash]
+----
+# Start the project
+docker-compose up -d
+
+# Install dependencies
+docker-compose exec application composer install
+
+# Run tests
+docker-compose exec application bin/phpunit
+
+# Run a bash within the container
+docker-compose exec application bash
+----
+
+== License
+
+template-bundle is distributed under the terms of the MIT license.
+
+See link:LICENSE.md[LICENSE] for details.
