@@ -29,6 +29,11 @@ final class TestConfiguration
         self::$currentTestConfig = $testConfig;
     }
 
+    public static function getCurrentTestConfig(): ?TestConfig
+    {
+        return self::$currentTestConfig;
+    }
+
     public static function has(string $key): bool
     {
         return self::$currentTestConfig && self::$currentTestConfig->has($key);
