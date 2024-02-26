@@ -16,9 +16,8 @@
         "issues": "https://github.com/richcongress/test-framework/issues"
     },
     "require": {
-        "php": "^7.1|^8.0",
-        "doctrine/annotations": "^1.11",
-        "phpunit/phpunit": "^7|^8|^9"
+        "php": "^8.1",
+        "phpunit/phpunit": "^9.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -29,7 +28,7 @@
             "RichCongress\\TestFramework\\": ""
         },
         "files" : [
-            "TestConfiguration/Annotation/TestConfig.php"
+            "TestConfiguration/Attribute/TestConfig.php"
         ]
     },
     "autoload-dev": {

@@ -3,7 +3,7 @@
 namespace RichCongress\TestFramework\Tests\Resources;
 
 use PHPUnit\Framework\TestCase;
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 
 /**
  * Class DummyTestCaseWithTestConfig
@@ -11,12 +11,11 @@ use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
  * @package    RichCongress\TestFramework\Tests\Resources
  * @author     Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
- *
- * @TestConfig({
- *     "test_case_configuration": "this is a test",
- *     "test_case_configuration_2": 10
- * })
  */
+#[TestConfig([
+    'test_case_configuration' => 'this is a test',
+    'test_case_configuration_2' => 10
+])]
 abstract class DummyTestCaseWithTestConfig extends TestCase
 {
 }

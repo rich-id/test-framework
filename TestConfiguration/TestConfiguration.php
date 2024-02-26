@@ -2,7 +2,7 @@
 
 namespace RichCongress\TestFramework\TestConfiguration;
 
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 
 /**
  * Class TestConfiguration

@@ -3,7 +3,7 @@
 namespace RichCongress\TestFramework\Tests\TestConfiguration;
 
 use PHPUnit\Framework\TestCase;
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 use RichCongress\TestFramework\TestConfiguration\TestConfiguration;
 use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
 
@@ -19,9 +19,7 @@ use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
  */
 final class TestConfigurationTest extends TestCase
 {
-    /**
-     * @TestConfig("custom_configuration")
-     */
+    #[TestConfig('custom_configuration')]
     public function testTestConfiguration(): void
     {
         $testConfig = TestConfigurationExtractor::get(__CLASS__, __FUNCTION__);
@@ -37,17 +35,6 @@ final class TestConfigurationTest extends TestCase
     {
         $reflectionMethod = new \ReflectionMethod(WithoutClassConfigTest::class, 'testWithTestConfigAttribute');
         $testConfig = TestConfigurationExtractor::getFromReflection($reflectionMethod);
-
-        self::assertNotNull($testConfig);
-    }
-
-    public function testGetFromReflectionWithUnknownReflector(): void
-    {
-        $this->expectException(\LogicException::class);
-        $this->expectExceptionMessage('Unsupported reflector.');
-
-        $reflector = new \ReflectionObject(new \StdClass());
-        $testConfig = TestConfigurationExtractor::getFromReflection($reflector);
 
         self::assertNotNull($testConfig);
     }

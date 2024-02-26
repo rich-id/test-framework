@@ -2,8 +2,7 @@
 
 namespace RichCongress\TestFramework\TestConfiguration;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 
 /**
  * Class TestConfigurationExtractor
@@ -14,9 +13,6 @@ use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
  */
 final class TestConfigurationExtractor
 {
-    /** @var AnnotationReader */
-    private static $annotationReader;
-
     public static function get(string $class, string $method): ?TestConfig
     {
         $reflectionClass = new \ReflectionClass($class);
@@ -46,34 +42,8 @@ final class TestConfigurationExtractor
             : null;
     }
 
-    public static function getFromReflection(\Reflector $reflection): ?TestConfig
+    public static function getFromReflection(\ReflectionMethod|\ReflectionClass $reflection): ?TestConfig
     {
-        if (method_exists($reflection, 'getAttributes')) {
-            $attribute = $reflection->getAttributes(TestConfig::class)[0] ?? null;
-
-            if ($attribute !== null) {
-                return $attribute->newInstance();
-            }
-        }
-
-        switch (\get_class($reflection)) {
-            case \ReflectionClass::class:
-                return self::getAnnotationReader()->getClassAnnotation($reflection, TestConfig::class);
-
-            case \ReflectionMethod::class:
-                return self::getAnnotationReader()->getMethodAnnotation($reflection, TestConfig::class);
-
-            default:
-                throw new \LogicException('Unsupported reflector.');
-        }
-    }
-
-    private static function getAnnotationReader(): AnnotationReader
-    {
-        if (self::$annotationReader === null) {
-            self::$annotationReader = new AnnotationReader();
-        }
-
-        return self::$annotationReader;
+        return ($reflection->getAttributes(TestConfig::class)[0] ?? null)?->newInstance();
     }
 }

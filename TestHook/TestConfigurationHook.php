@@ -2,7 +2,7 @@
 
 namespace RichCongress\TestFramework\TestHook;
 
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 use RichCongress\TestFramework\TestConfiguration\TestConfiguration;
 use RichCongress\TestFramework\TestConfiguration\TestConfigurationExtractor;
 

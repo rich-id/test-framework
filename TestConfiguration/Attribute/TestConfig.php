@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace RichCongress\TestFramework\TestConfiguration\Annotation;
+namespace RichCongress\TestFramework\TestConfiguration\Attribute;
 
 /**
  * Class TestConfig
@@ -8,9 +8,6 @@ namespace RichCongress\TestFramework\TestConfiguration\Annotation;
  * @package    RichCongress\TestFramework\TestConfiguration
  * @author     Nicolas Guilloux <nguilloux@richcongress.com>
  * @copyright  2014 - 2020 RichCongress (https://www.richcongress.com)
- *
- * @Annotation
- * @Target({"CLASS", "METHOD"})
  */
 #[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
 class TestConfig
