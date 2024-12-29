@@ -2,6 +2,9 @@
 
 namespace RichCongress\TestFramework\TestConfiguration;
 
+use PHPUnit\Event\Code\Test;
+use PHPUnit\Event\Code\TestMethod;
+use PHPUnit\Event\Test\AfterTestMethodFinished;
 use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 
 /**
@@ -22,6 +25,18 @@ final class TestConfiguration
     private function __construct()
     {
         // Avoid instantiation
+    }
+
+    public static function registerTestConfig(Test $test): void
+    {
+        if (!$test instanceof TestMethod) {
+            throw new \RuntimeException("test-framework only supports tests in class extending phpunit's TestCase. Other test kinds such as phpt are not supported yet.");
+        }
+
+        $testConfig = TestConfigurationExtractor::getRecursively($test->className(), $test->methodName())
+            ?? new TestConfig();
+
+        TestConfiguration::setCurrentTestConfig($testConfig);
     }
 
     public static function setCurrentTestConfig(TestConfig $testConfig): void
